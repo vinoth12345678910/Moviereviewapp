@@ -5,84 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Page</title>
     <style>
+        /* General styling */
         body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-.container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-}
+        /* Container for the form and reviews */
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
 
-.title {
-    text-align: center;
-    color: #333;
-}
+        /* Title styling */
+        .title {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.form-group {
-    margin-bottom: 15px;
-}
+        /* Form group */
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-}
+        /* Labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
 
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
 
-textarea {
-    resize: vertical;
-    height: 100px;
-}
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
 
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-}
+        /* Submit button */
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
 
-button:hover {
-    background-color: #0056b3;
-}
+        button:hover {
+            background-color: #0056b3;
+        }
 
-.reviews-list {
-    margin-top: 20px;
-}
+        /* Reviews list */
+        .reviews-list {
+            margin-top: 20px;
+        }
 
-.reviews-list h2 {
-    color: #333;
-}
+        .reviews-list h2 {
+            color: #333;
+            font-size: 20px;
+        }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-li {
-    background: #f9f9f9;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
-}
+        li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
 
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            label {
+                font-size: 13px;
+            }
+
+            input[type="text"],
+            textarea {
+                font-size: 13px;
+            }
+
+            button {
+                font-size: 15px;
+            }
+
+            .reviews-list h2 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            button {
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,25 +174,26 @@ li {
             <ul id="reviews"></ul>
         </div>
     </div>
+
     <script>
         document.getElementById("reviewForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
+            event.preventDefault(); // Prevent form submission
 
-    // Get the values from the input fields
-    const name = document.getElementById("name").value;
-    const review = document.getElementById("review").value;
+            // Get the values from the input fields
+            const name = document.getElementById("name").value;
+            const review = document.getElementById("review").value;
 
-    // Create a new list item for the review
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>${name}</strong>: ${review}`;
+            // Create a new list item for the review
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${name}</strong>: ${review}`;
 
-    // Add the new review to the list
-    document.getElementById("reviews").appendChild(li);
+            // Add the new review to the list
+            document.getElementById("reviews").appendChild(li);
 
-    // Clear the form fields
-    document.getElementById("reviewForm").reset();
-});
-
+            // Clear the form fields
+            document.getElementById("reviewForm").reset();
+        });
     </script>
 </body>
 </html>
+
